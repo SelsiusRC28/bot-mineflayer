@@ -2,9 +2,9 @@ const mineflayer = require('mineflayer')
 
 const bot = mineflayer.createBot({
   host: 'localhost', // minecraft server ip
-  username: 'brayanrc16', // minecraft username
+  username: 'botsito', // minecraft username
   // minecraft password, comment out if you want to log into online-mode=false servers
-  port: 55356,                // only set if you need a port that isn't 25565
+  port: 61001,                // only set if you need a port that isn't 25565
   // version: false,             // only set if you need a specific version or snapshot (ie: "1.8.9" or "1.16.5"), otherwise it's set automatically
   // auth: 'mojang'              // only set if you need microsoft auth, then set this to 'microsoft'
 })
@@ -51,7 +51,7 @@ const bot = mineflayer.createBot({
 // 	}, 5000)
 // })
 
-const boss = 'iFrozeadoo'
+const boss = 'SelsiusRC28'
 
 
 bot.on('chat', function(username, message){
@@ -105,6 +105,25 @@ bot.on('chat', function(username, message){
 		bot.chat(getDateTime())
 		
 	}
+
+	if(message == 'farmea'){
+		console.log(bot.inventory.slots.filter(v=>v==null).length < 2)
+	}
+
+	if(message == 'famea1'){
+		console.log(bot.inventory.slots)
+	}
+
+	if(message == 'farmea2'){
+		for (slot of bot.inventory.slots) {
+			if (slot.name == "Grass Block") {
+				console.log("YES");
+			}else{
+				console.log("no")
+			}
+		}
+	}
+
 })
 
 
@@ -131,6 +150,12 @@ function getDateTime() {
 
     return day + "/" + month + "/" + year + "   " + hour + ":" + min + ":" + sec;
 
+}
+
+function farmLoop(){
+	if(bot.inventory.slots.filter(v=>v==null).length < 2){
+		console.log("lleno")
+	}
 }
 
 
